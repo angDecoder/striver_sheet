@@ -65,6 +65,6 @@ Node *flattenLinkedList(Node *h1)
 
 int main()
 {
-
+    cout<<"hellow"<<endl;
     return 0;
 }
