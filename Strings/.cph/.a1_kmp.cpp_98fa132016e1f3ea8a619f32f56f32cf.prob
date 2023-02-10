@@ -1,0 +1,1 @@
+{"name":"Local: a1_kmp","url":"/home/angshu/Desktop/striver_sheet/Strings/a1_kmp.cpp","tests":[{"id":1675790087082,"input":"4\nxzzwo\nzwoxz\nzzwox\nxzzwo","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/angshu/Desktop/striver_sheet/Strings/a1_kmp.cpp","group":"local","local":true}
