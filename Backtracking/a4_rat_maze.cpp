@@ -3,7 +3,7 @@ using namespace std;
 #define ll long long int
 #define ul unsigned long long int
 
-bool isValid(int i, int j, vector<vector<int>> &v)
+wbool isValid(int i, int j, vector<vector<int>> &v)
 {
     int n = v.size(), m = v[0].size();
     return i >= 0 and j >= 0 and i < n and j < m and v[i][j] == 1;
