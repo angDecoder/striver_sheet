@@ -3,47 +3,40 @@ using namespace std;
 #define ll long long int
 #define ul unsigned long long int
 
-int kmp( string &a, string &b ){
-    string s = b + "#" + a;
-    int i = 1,len = 0,ans = 0;
-    vector<int> lps(s.size(),0);
-    while( i<s.size() ){
-        if( s[i]==s[len] ){
-            len++;
-            ans = max(ans,len);
-            lps[i] = len;
-            i++;
-        }
-        else{
-            if( len>0 )
-                len = lps[len-1];
-            else
-                i++;
-        }
+vector<int> kmp( string str, string patt ){
+  string s = patt + "$" + str;
+  int n = s.size();
+  vector<int> lps(n,0);
+  int len = lps[0], i = 1;
+  while( i<n ){
+    if( s[i]==s[len] ){
+      len++;
+      lps[i] = len;
+      i++;
     }
-
-    return ans;
-}
-
-void solve(){
-    int n; cin>>n;
-    vector<string> v(n);
-    int res = 0;
-    for( int i=0; i<n; i++ ){
-        cin>>v[i];
-        reverse(v[i].begin(),v[i].end());
-        if( i>0 )
-            res += v[0].size() - kmp(v[0],v[i]);
-       
+    else{
+      if( len>0 )
+        len = lps[len-1];
+      else
+        len = lps[i] = 0, i++;
     }
+  }
 
-    // cout<<res<<endl;
-
+  return lps;
 }
 
 int main()
 {
-    solve();
+  string s,patt; cin>>s>>patt;
+  vector<int> lps = kmp(s,patt);
+
+  int ans = 0;
+  for(int i=0; i<lps.size(); i++)
+  {
+    if( lps[i]==patt.size() )
+      ans++;
+  }
+  cout<<ans<<endl;
   
   return 0;
 }
