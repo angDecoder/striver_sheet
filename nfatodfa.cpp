@@ -3,28 +3,23 @@ using namespace std;
 #define ll long long int
 #define ul unsigned long long int
 
-void nfatodfa( vector<map<int,vector<int>>>&graph,vector<int>&input ){
-    set<vector<int>> s;
-    s.insert({0});
-    
+int hammingDistance( int a, int b ){
+    int ans = 0;
+    int x = a^b;
+    while( x>0 ){
+        if( x%2 )
+            ans++;
+            
+        x = x/2;
+    }
+
+    return ans;
 }
 
 int main()
 {
-    int n,e,in; cin>>n>>e>>in;
-    vector<int> input(in);
-    for( int i=0; i<in;i++ ){
-        cin>>input[i];
-    }
-
-    vector<map<int,vector<int>>> graph(n);
-    for( int i=0; i<e; i++ ){
-        int st,inp,res;
-        cin>>st>>inp>>res;
-        graph[st][inp].push_back(res);
-    }
-
-    nfatodfa(graph,input);
+    int a,b; cin>>a>>b;
+    cout<<hammingDistance(a,b);
   
   return 0;
 }
